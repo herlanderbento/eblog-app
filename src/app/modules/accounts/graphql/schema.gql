@@ -9,16 +9,32 @@ type User {
   update_at: Date
 }
 
+type Query {
+  getAllUsers: [User!]!
+}
+
+type IAuthenticateUser {
+  name: String
+  email: String
+}
+
+type IAuthenticate {
+  user: IAuthenticateUser
+  token: String
+}
+
 input CreateUserInput {
   name: String
   email: String
   password: String
 }
 
-type Query {
-  users: [User!]!
+input AuthenticateInput {
+  email: String
+  password: String
 }
 
 type Mutation {
   createUser(input: CreateUserInput!): User!
+  authenticateUser(input: AuthenticateInput!): IAuthenticate
 }

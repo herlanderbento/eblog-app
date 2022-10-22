@@ -28,4 +28,16 @@ export class UsersRepository implements IUserRepository {
 
     return user;
   }
+
+  async findAll(): Promise<User[]> {
+    const users = await this.repository.find();
+
+    return users;
+  }
+
+  async findById(id: string): Promise<User> {
+    const user = await this.repository.findOneBy({ id });
+
+    return user;
+  }
 }

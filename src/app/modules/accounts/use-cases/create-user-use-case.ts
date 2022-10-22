@@ -1,5 +1,6 @@
-import { AppError } from "@shared/errors/AppError";
 import { inject, injectable } from "tsyringe";
+import { hash } from "bcrypt";
+import { AppError } from "@shared/errors/AppError";
 import { ICreateUserDtos } from "../dtos/create-user-dtos";
 import { User } from "../entities/User";
 import { IUserRepository } from "../repositories/implementations/IUserRepository";
@@ -23,10 +24,12 @@ export class CreateUserUseCases {
       throw new AppError("User already exists!");
     }
 
+    const passwordHash = await hash(password, 8);
+
     const user = await this.userRepository.create({
       name,
       email,
-      password,
+      password: passwordHash,
     });
 
     return user;

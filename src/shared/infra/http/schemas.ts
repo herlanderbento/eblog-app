@@ -4,7 +4,7 @@ import { mergeTypeDefs } from '@graphql-tools/merge'
 import path from "path";
 
 const mergePath = loadFilesSync(
-  path.join(__dirname, "../../../app/**/graphql/schema.gql")
+  path.join(__dirname, "../../../app/**/graphql/*.gql")
 );
 
 const schemas = mergeTypeDefs(mergePath);
