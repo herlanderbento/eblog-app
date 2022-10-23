@@ -2,7 +2,7 @@ import { inject, injectable } from "tsyringe";
 import { hash } from "bcrypt";
 import { AppError } from "@shared/errors/AppError";
 import { ICreateUserDtos } from "../dtos/create-user-dtos";
-import { User } from "../entities/User";
+import { Users } from "../entities/User";
 import { IUserRepository } from "../repositories/implementations/IUserRepository";
 import { createUsersSchemaValidate } from "../validations/account-validations";
 
@@ -13,7 +13,7 @@ export class CreateUserUseCases {
     private userRepository: IUserRepository
   ) {}
 
-  async execute({ name, email, password }: ICreateUserDtos): Promise<User> {
+  async execute({ name, email, password }: ICreateUserDtos): Promise<Users> {
     if (!(await createUsersSchemaValidate.isValid({ name, email, password }))) {
       throw new AppError("Validation fails", 422);
     }

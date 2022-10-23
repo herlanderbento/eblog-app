@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
-import { GetUsersUseCases } from "../use-cases/get-users-use-cases";
+import { GetUsersUseCases } from "../use-cases/get-users.useCases";
 
 export class GetUsersController {
   async handle(request: Request, response: Response): Promise<Response> {

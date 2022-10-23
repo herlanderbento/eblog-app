@@ -1,7 +1,7 @@
 import { container } from "tsyringe";
 import { AuthenticateUserUseCases } from "../use-cases/authenticate-user-use-cases";
 import { CreateUserUseCases } from "../use-cases/create-user-use-case";
-import { GetUsersUseCases } from "../use-cases/get-users-use-cases";
+import { GetUsersUseCases } from "../use-cases/get-users.useCases";
 
 const usersResolvers = {
   Query: {

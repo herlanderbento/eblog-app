@@ -1,5 +1,5 @@
 import { inject, injectable } from "tsyringe";
-import { User } from "../entities/User";
+import { Users } from "../entities/User";
 import { IUserRepository } from "../repositories/implementations/IUserRepository";
 
 @injectable()
@@ -9,7 +9,7 @@ export class GetUsersUseCases {
     private usersRepository: IUserRepository
   ) {}
 
-  async execute(): Promise<User[]> {
+  async execute(): Promise<Users[]> {
     const users = await this.usersRepository.findAll();
 
     return users;

@@ -1,9 +1,10 @@
-import { AppError } from "@shared/errors/AppError";
 import { sign } from "jsonwebtoken";
 import { compare } from "bcrypt";
 import { inject, injectable } from "tsyringe";
+import { AppError } from "@shared/errors/AppError";
 import { IUserRepository } from "../repositories/implementations/IUserRepository";
 import { authenticateUserSchemaValidate } from "../validations/account-validations";
+
 import auth from "@app/config/auth";
 
 interface IRequest {

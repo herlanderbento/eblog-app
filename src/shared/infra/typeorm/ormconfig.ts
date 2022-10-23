@@ -1,6 +1,6 @@
 import { DataSource } from "typeorm";
-import { User as Users } from "@app/modules/accounts/entities/User";
-import { Post as Posts } from "@app/modules/posts/entities/Post";
+import { Users } from "@app/modules/accounts/entities/User";
+import { Posts } from "@app/modules/posts/entities/Post";
 
 export const connection = new DataSource({
   type: "postgres",
